@@ -1,3 +1,5 @@
+<?php include '../config/config.php'?>
+
 <?php
 Class Database{
  public $host   = DB_HOST;
@@ -14,8 +16,7 @@ Class Database{
  }
  
 private function connectDB(){
-   $this->link = new mysqli($this->host, $this->user, $this->pass, 
-    $this->dbname);
+   $this->link = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
    if(!$this->link){
      $this->error ="Connection fail".$this->link->connect_error;
     return false;

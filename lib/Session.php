@@ -29,7 +29,7 @@ class Session{
 
  public static function checkSession(){
     self::init();
-    if (self::get("login")== false) {
+    if (self::get("adminLogin") == false) {
      self::destroy();
      header("Location:login.php");
     }
@@ -37,8 +37,8 @@ class Session{
 
  public static function checkLogin(){
     self::init();
-    if (self::get("login")== true) {
-     header("Location:index.php");
+    if (self::get("adminLogin") == true) {
+     header("Location:dashbord.php");
     }
  }
 
