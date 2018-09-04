@@ -1,3 +1,28 @@
+<?php
+    include 'lib/Session.php';
+    Session::init();
+
+    include_once 'lib/Database.php';
+	include_once 'helpers/Format.php';
+
+	spl_autoload_register(function($class){
+		include_once "classes/".$class.".php" ;
+	});
+
+	$db = new Database();
+	$fm = new Format();
+	$pd = new Product();
+	$ct = new Cart();
+?>
+
+<?php
+  header("Cache-Control: no-cache, must-revalidate");
+  header("Pragma: no-cache"); 
+  header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); 
+  header("Cache-Control: max-age=2592000");
+?>
+
+
 <!DOCTYPE HTML>
 <head>
 <title>Store Website</title>
@@ -14,11 +39,14 @@
 <script type="text/javascript" src="js/nav-hover.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Monda' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
+
 <script type="text/javascript">
+
   $(document).ready(function($){
     $('#dc_mega-menu-orange').dcMegaMenu({rowItems:'4',speed:'fast',effect:'fade'});
   });
 </script>
+
 </head>
 
 <body>
