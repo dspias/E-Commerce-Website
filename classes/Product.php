@@ -1,6 +1,8 @@
 <?php
-	include_once '../lib/Database.php';
-	include_once '../helpers/Format.php';
+	
+	$filepath = realpath(dirname(__FILE__));
+	include_once ($filepath.'/../lib/Database.php');
+	include_once ($filepath.'/../helpers/Format.php');
 
 ?>
 
@@ -64,13 +66,13 @@ class Product {
 
 			$inserted_row = $this->db->insert($query);
 
-				if($inserted_row) {
-					$msg = "<span class='success'>Product Inserted Successfully.</span> ";
-					return $msg;
-				} else {
-					$msg = "<span class='error'>Product not Inserted.</span> ";
-					return $msg;
-				}
+			if($inserted_row) {
+				$msg = "<span class='success'>Product Inserted Successfully.</span> ";
+				return $msg;
+			} else {
+				$msg = "<span class='error'>Product not Inserted.</span> ";
+				return $msg;
+			}
 		}
 	}
 
@@ -212,6 +214,35 @@ class Product {
 			$msg = "<span class='error'>Product not Deleted.</span> ";
 			return $msg;
 		}
+	}
+
+	public function getFeturedProduct(){
+
+		$query = "select * from tbl_product where type='0' order by productId DESC LIMIT 4";
+
+		$result = $this->db->select($query);
+
+		return $result;
+	}
+
+	public function getNewProduct(){
+
+		$query = "select * from tbl_product order by productId ASC LIMIT 4";
+
+		$result = $this->db->select($query);
+
+		return $result;
+	}
+
+	public function getSingleProductById($id){
+
+		$query = "SELECT  p.*, c.catName, b.brandName
+				FROM tbl_product as p, tbl_category as c, tbl_brand as b
+				WHERE p.catId=c.catId AND p.brandId=b.brandId AND p.productId='$id' ";
+
+		$result = $this->db->select($query);
+
+		return $result;
 	}
 
 }

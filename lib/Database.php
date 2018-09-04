@@ -1,4 +1,7 @@
-<?php include '../config/config.php'?>
+<?php 
+  $filepath = realpath(dirname(__FILE__));
+  include ($filepath.'/../config/config.php');
+?>
 
 <?php
 Class Database{

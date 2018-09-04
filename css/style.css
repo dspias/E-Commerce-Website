@@ -20,6 +20,10 @@ a{text-decoration:none;}
 nav.vertical ul li{	display:block;}/* vertical menu */
 nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
+
+.success{font-size:18px; color: green;}
+.error{font-size:18px; color: #ccc;}
+
 /*end reset*/
 body{
 	font-family:Arial, Helvetica, sans-serif;
@@ -613,8 +617,9 @@ p.note{
 	text-align:center;
 	position:relative; 
 }
-.images_1_of_4  img{
-	max-width:100%;
+.images_1_of_4 img {
+    max-width: 100%;
+    max-height: 200px;
 }
 .discount{
 	background:url(../images/discount-img.png) no-repeat 0 0;
