@@ -245,5 +245,37 @@ class Product {
 		return $result;
 	}
 
+	public function latetestFromIphone(){
+		$query = "SELECT * FROM tbl_product WHERE brandId = '1' ORDER BY productId LIMIT 1";
+
+		$result = $this->db->select($query);
+
+		return $result;
+	}
+
+	public function latetestFromSumsung(){
+		$query = "SELECT * FROM tbl_product WHERE brandId = '2' ORDER BY productId LIMIT 1";
+
+		$result = $this->db->select($query);
+
+		return $result;
+	}
+
+	public function latetestFromAsus(){
+		$query = "SELECT * FROM tbl_product WHERE brandId = '5' ORDER BY productId LIMIT 1";
+
+		$result = $this->db->select($query);
+
+		return $result;
+	}
+
+	public function latetestFromCannon(){
+		$query = "SELECT * FROM tbl_product WHERE brandId = '6' ORDER BY productId LIMIT 1";
+
+		$result = $this->db->select($query);
+
+		return $result;
+	}
+
 }
 ?>

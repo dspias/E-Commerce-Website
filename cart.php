@@ -14,6 +14,12 @@
     }
 ?>
 
+<?php
+	if (!isset($_GET['id'])) {
+		echo "<meta http-equiv='refresh' content='0;url=?id=live'/>";
+	}
+?>
+
 
  <div class="main">
     <div class="content">
@@ -66,7 +72,6 @@
 										<input type="submit" name="submit" value="Update"/>
 									</form>
 								</td>
-						<?php ?>
 
 								<td> $ 
 									<?php
@@ -79,7 +84,12 @@
 								<td><a onclick="return confirm('Are you sure for delete this product')" href="?delPro=<?php echo $result['cartId'];?>">X</a></td>
 							</tr>
 
-						<?php } } ?>
+						<?php } 
+							} else{
+								header("Location:index.php");
+							}
+
+						 ?>
 							
 						</table>
 						<table style="float:right;text-align:left;" width="40%">
@@ -102,10 +112,10 @@
 					</div>
 					<div class="shopping">
 						<div class="shopleft">
-							<a href="index.html"> <img src="images/shop.png" alt="" /></a>
+							<a href="index.php"> <img src="images/shop.png" alt="" /></a>
 						</div>
 						<div class="shopright">
-							<a href="login.html"> <img src="images/check.png" alt="" /></a>
+							<a href="login.php"> <img src="images/check.png" alt="" /></a>
 						</div>
 					</div>
     	</div>  	

@@ -1,48 +1,84 @@
 <div class="header_bottom">
 		<div class="header_bottom_left">
 			<div class="section group">
+
+			<?php
+				$getIphone = $pd->latetestFromIphone();
+
+				if ($getIphone) {
+					while ($riphone = $getIphone->fetch_assoc()) {
+			?>
 				<div class="listview_1_of_2 images_1_of_2">
 					<div class="listimg listimg_2_of_1">
-						 <a href="details.php"> <img src="images/pic4.png" alt="" /></a>
+						 <a href="details.php?productId=<?php echo $riphone['productId'];?>"> <img src="admin/<?php echo $riphone['image'];?>" alt="" /></a>
 					</div>
 				    <div class="text list_2_of_1">
-						<h2>Iphone</h2>
-						<p>Lorem ipsum dolor sit amet sed do eiusmod.</p>
-						<div class="button"><span><a href="details.php">Add to cart</a></span></div>
+						<h2><?php echo $riphone['productName'];?></h2>
+						<p><?php echo $fm->textShorten($riphone['body'],40);?>.</p>
+						<div class="button"><span><a href="details.php?productId=<?php echo $riphone['productId'];?>">Add to cart</a></span></div>
 				   </div>
-			   </div>			
+			   </div>
+			<?php } } ?>
+
+
+			<?php
+				$getSumsung = $pd->latetestFromSumsung();
+
+				if ($getSumsung) {
+					while ($rSumsung = $getSumsung->fetch_assoc()) {
+			?>
 				<div class="listview_1_of_2 images_1_of_2">
 					<div class="listimg listimg_2_of_1">
-						  <a href="details.php"><img src="images/pic3.png" alt="" / ></a>
+						 <a href="details.php?productId=<?php echo $rSumsung['productId'];?>"> <img src="admin/<?php echo $rSumsung['image'];?>" alt="" /></a>
 					</div>
-					<div class="text list_2_of_1">
-						  <h2>Samsung</h2>
-						  <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
-						  <div class="button"><span><a href="details.php">Add to cart</a></span></div>
-					</div>
-				</div>
+				    <div class="text list_2_of_1">
+						<h2><?php echo $rSumsung['productName'];?></h2>
+						<p><?php echo $fm->textShorten($rSumsung['body'],40);?>.</p>
+						<div class="button"><span><a href="details.php?productId=<?php echo $rSumsung['productId'];?>">Add to cart</a></span></div>
+				   </div>
+			   </div>
+
+			<?php } } ?>
+
 			</div>
 			<div class="section group">
+				<?php
+				$getAsus = $pd->latetestFromAsus();
+
+				if ($getAsus) {
+					while ($rAsus = $getAsus->fetch_assoc()) {
+			?>
 				<div class="listview_1_of_2 images_1_of_2">
 					<div class="listimg listimg_2_of_1">
-						 <a href="details.php"> <img src="images/pic3.jpg" alt="" /></a>
+						 <a href="details.php?productId=<?php echo $rAsus['productId'];?>"> <img src="admin/<?php echo $rAsus['image'];?>" alt="" /></a>
 					</div>
 				    <div class="text list_2_of_1">
-						<h2>Acer</h2>
-						<p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
-						<div class="button"><span><a href="details.php">Add to cart</a></span></div>
+						<h2><?php echo $rAsus['productName'];?></h2>
+						<p><?php echo $fm->textShorten($rAsus['body'],40);?>.</p>
+						<div class="button"><span><a href="details.php?productId=<?php echo $rAsus['productId'];?>">Add to cart</a></span></div>
 				   </div>
-			   </div>			
+			   </div>
+			<?php } } ?>
+
+
+			<?php
+				$getCannon = $pd->latetestFromCannon();
+
+				if ($getCannon) {
+					while ($rCannon = $getCannon->fetch_assoc()) {
+			?>
 				<div class="listview_1_of_2 images_1_of_2">
 					<div class="listimg listimg_2_of_1">
-						  <a href="details.php"><img src="images/pic1.png" alt="" /></a>
+						 <a href="details.php?productId=<?php echo $rCannon['productId'];?>"> <img src="admin/<?php echo $rCannon['image'];?>" alt="" /></a>
 					</div>
-					<div class="text list_2_of_1">
-						  <h2>Canon</h2>
-						  <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
-						  <div class="button"><span><a href="details.php">Add to cart</a></span></div>
-					</div>
-				</div>
+				    <div class="text list_2_of_1">
+						<h2><?php echo $rCannon['productName'];?></h2>
+						<p><?php echo $fm->textShorten($rCannon['body'],40);?>.</p>
+						<div class="button"><span><a href="details.php?productId=<?php echo $rCannon['productId'];?>">Add to cart</a></span></div>
+				   </div>
+			   </div>
+
+			<?php } } ?>
 			</div>
 		  <div class="clear"></div>
 		</div>
